@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="Nightwatch sample test" id="sampleTest"
+    errors="1" failures="0" hostname="" package="sampleTest" skipped="1"
+    tests="0" time="0.001000" timestamp="">
+  
+
+  
+    <system-err>
+       An error occurred while creating a new ChromeDriver session: [SessionNotCreatedError] session not created: This version of ChromeDriver only supports Chrome version 142
+Current browser version is 139.0.7258.127 with binary path /opt/google/chrome/chrome
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;/home/pravinkumarsqa/automation-showcase/nightwatch/node_modules/.pnpm/chromedriver@142.0.0/node_modules/chromedriver/lib/chromedriver/chromedriver&#39;,
+     port: 9515,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  More info might be available in the log file: /home/pravinkumarsqa/automation-showcase/nightwatch/logs/sampleTest_chromedriver.log
+    </system-err>
+  
+
+    
+    <error message="An error occurred while creating a new ChromeDriver session: [SessionNotCreatedError] session not created: This version of ChromeDriver only supports Chrome version 142
+Current browser version is 139.0.7258.127 with binary path /opt/google/chrome/chrome"><![CDATA[
+      SessionNotCreatedError: An error occurred while creating a new ChromeDriver session: [SessionNotCreatedError] session not created: This version of ChromeDriver only supports Chrome version 142
+Current browser version is 139.0.7258.127 with binary path /opt/google/chrome/chrome
+    at Object.throwDecodedError (/home/pravinkumarsqa/automation-showcase/nightwatch/node_modules/.pnpm/selenium-webdriver@4.27.0/node_modules/selenium-webdriver/lib/error.js:521:15)
+    at parseHttpResponse (/home/pravinkumarsqa/automation-showcase/nightwatch/node_modules/.pnpm/selenium-webdriver@4.27.0/node_modules/selenium-webdriver/lib/http.js:514:13)
+    at Executor.execute (/home/pravinkumarsqa/automation-showcase/nightwatch/node_modules/.pnpm/selenium-webdriver@4.27.0/node_modules/selenium-webdriver/lib/http.js:446:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      ]]></error>  
+
+  
+    
+    <testcase
+      name="opens Google and verifies the title" classname="Nightwatch sample test">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

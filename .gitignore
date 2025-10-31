@@ -1,0 +1,19 @@
+cat <<EOL > .gitignore
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test results and reports
+test-results/
+playwright-report/
+allure-results/
+
+# Environment files
+.env
+
+# OS files
+.DS_Store
+EOL
