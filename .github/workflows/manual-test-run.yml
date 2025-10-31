@@ -47,5 +47,11 @@ jobs:
             pnpm exec playwright test
           else
             cd nightwatch
+            # --- Auto-match ChromeDriver version to Chrome ---
+            CHROME_VERSION=$(google-chrome --version | grep -oE '[0-9]+' | head -1)
+            echo "Detected Chrome major version: $CHROME_VERSION"
+            pnpm add -D chromedriver@$CHROME_VERSION
+            echo "Chromedriver version aligned to Chrome version $CHROME_VERSION"
+            # -----------------------------------------------------------
             pnpm exec nightwatch tests/sampleTest.js
           fi
