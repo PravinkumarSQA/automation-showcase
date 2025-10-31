@@ -25,9 +25,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.10.0
+
       - name: Install dependencies
         run: |
-          if [ "\${{ github.event.inputs.framework }}" = "playwright" ]; then
+          if [ "${{ github.event.inputs.framework }}" = "playwright" ]; then
             cd playwright
           else
             cd nightwatch
@@ -36,11 +41,11 @@ jobs:
 
       - name: Run Tests
         run: |
-          if [ "\${{ github.event.inputs.framework }}" = "playwright" ]; then
+          if [ "${{ github.event.inputs.framework }}" = "playwright" ]; then
             cd playwright
-            npx playwright install --with-deps
-            npx playwright test
+            pnpm exec playwright install --with-deps
+            pnpm exec playwright test
           else
             cd nightwatch
-            npx nightwatch tests/sampleTest.js
+            pnpm exec nightwatch tests/sampleTest.js
           fi
