@@ -31,7 +31,7 @@ module.exports = {
         "goog:chromeOptions": {
           w3c: true,
           args: [
-            //"--headless",
+            "--headless",
             "--no-sandbox",
             "--disable-gpu",
             "--disable-dev-shm-usage",
