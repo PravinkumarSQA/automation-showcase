@@ -1,0 +1,46 @@
+name: Manual Test Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      framework:
+        description: "Select framework to run"
+        required: true
+        default: "playwright"
+        type: choice
+        options:
+          - playwright
+          - nightwatch
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          if [ "\${{ github.event.inputs.framework }}" = "playwright" ]; then
+            cd playwright
+          else
+            cd nightwatch
+          fi
+          pnpm install
+
+      - name: Run Tests
+        run: |
+          if [ "\${{ github.event.inputs.framework }}" = "playwright" ]; then
+            cd playwright
+            npx playwright install --with-deps
+            npx playwright test
+          else
+            cd nightwatch
+            npx nightwatch tests/sampleTest.js
+          fi
